@@ -25,10 +25,32 @@ public class OurGame {
 
         return name;
     }
+    public static void showWelcome(){
+        System.out.println("                       __\n" +
+                "                     .'  '.\n" +
+                "                 _.-'/  |  \\\n" +
+                "    ,        _.-\"  ,|  /  0 `-.\n" +
+                "    |\\    .-\"       `--\"\"-.__.'=====================-,\n" +
+                "    \\ '-'`        .___.--._)=========================|\n" +
+                "     \\            .'      |                          |\n" +
+                "      |     /,_.-'        |        ONLY                |\n" +
+                "    _/   _.'(             |           THREE            |\n" +
+                "   /  ,-' \\  \\            |        ARROWS            |\n" +
+                "   \\  \\    `-'            |                          |\n" +
+                "    `-'                   '--------------------------'");
+    }
     public static void showHistoryPartOne(String nameUser){
         System.out.println("In Villa Esperaza it is usually quiet days, but today the king called a meeting to defend it" +
                 "\nsince there is a dragon on the way that destroyed several nearby towns" +
                 "\nand everything indicates that your villa will be next.\n" +
+                "                  ┈┈┈┈▕▔╱▔▔▔━▁┈┈┈┈\n" +
+                "                  ┈┈┈▕▔╱╱╱▆┈╲▂▔▔╲┈\n" +
+                "                  ┈┈▕▔╱╱╱╱▔▂▂▂▂▂▂▏\n" +
+                "                  ┈▕▔╱▕▕╱╱╱┈▽▽▽▽▽┈\n" +
+                "                  ▕▔╱┊┈╲╲╲╲▂△△△△┈┈\n" +
+                "                  ▔╱┊┈╱▕╲▂▂▂▂▂▂╱┈┈\n" +
+                "                  ╱┊┈╱┉▕┉┋╲┈┈┈┈┈┈┈\n" +
+                "                  ┊┈╱┉┋▕┉┋┉╲┉┉┉┉┉┉"+
                 "\n" + "They need reinforcements to defend it and you will have to be part of the defense."+"\n"
                 +"The king heard that there is a witch at the end of the dark forest, who has multiple magic items.\n"+
                 "The ones we are interested in are the three magical dragon-slaying arrows.\n" +
@@ -124,15 +146,53 @@ public class OurGame {
                      System.out.println("The dragon falls outside the village\n" +
                     "You are a hero\n" +
                     "And the king will knight you.");
+
                 }
         }else{
             System.out.println("Lost. the dragon burned Villa Esperanza :C");
+
         }
     }
-
+    public static void drawDragon(){
+        System.out.println("                                                          ___\n" +
+                "                                                       .~))>>\n" +
+                "                                                      .~)>>\n" +
+                "                                                    .~))))>>>\n" +
+                "                                                  .~))>>             ___\n" +
+                "                                                .~))>>)))>>      .-~))>>  \n" +
+                "                                              .~)))))>>       .-~))>>)>\n" +
+                "                                            .~)))>>))))>>  .-~)>>)>\n" +
+                "                        )                 .~))>>))))>>  .-~)))))>>)>\n" +
+                "                     ( )@@*)             //)>))))))  .-~))))>>)>\n" +
+                "                   ).@(@@               //))>>))) .-~))>>)))))>>)>\n" +
+                "                 (( @.@).              //))))) .-~)>>)))))>>)>\n" +
+                "               ))  )@@*.@@ )          //)>))) //))))))>>))))>>)>\n" +
+                "            ((  ((@@@.@@             |/))))) //)))))>>)))>>)>\n" +
+                "           )) @@*. )@@ )   (\\_(\\-\\b  |))>)) //)))>>)))))))>>)>\n" +
+                "         (( @@@(.@(@ .    _/`-`  ~|b |>))) //)>>)))))))>>)>\n" +
+                "          )* @@@ )@*     (@) (@)  /\\b|))) //))))))>>))))>>\n" +
+                "        (( @. )@( @ .   _/       /  \\b)) //))>>)))))>>>_._\n" +
+                "         )@@ (@@*)@@.  (6,   6) / ^  \\b)//))))))>>)))>>   ~~-.\n" +
+                "      ( @jgs@@. @@@.*@_ ~^~^~, /\\  ^  \\b/)>>))))>>      _.     `,\n" +
+                "       ((@@ @@@*.(@@ .   \\^^^/' (  ^   \\b)))>>        .'         `,\n" +
+                "        ((@@).*@@ )@ )    `-'   ((   ^  ~)_          /             `,\n" +
+                "          (@@. (@@ ).           (((   ^    `\\        |               `.\n" +
+                "            (*.@*              / ((((        \\        \\      .         `.\n" +
+                "                              /   (((((  \\    \\    _.-~\\     Y,         ;\n" +
+                "                             /   / (((((( \\    \\.-~   _.`\" _.-~`,       ;\n" +
+                "                            /   /   `(((((()    )    (((((~      `,     ;\n" +
+                "                          _/  _/      `\"\"\"/   /'                  ;     ;\n" +
+                "                      _.-~_.-~           /  /'                _.-~   _.'\n" +
+                "                    ((((~~              / /'              _.-~ __.--~\n" +
+                "                                       ((((          __.-~ _.-~\n" +
+                "                                                   .'   .~~\n" +
+                "                                                   :    ,'\n" +
+                "                                                   ~~~~~");
+    }
     public static void main(String[] args) {
         int numberUser;
         try{
+            showWelcome();
             askByName();
             Scanner userAnswer = new Scanner(System.in);
             numberUser = userAnswer.nextInt();
@@ -149,7 +209,7 @@ public class OurGame {
             numberUser = userAnswer.nextInt();
             int answerQuestionThree = askQuestionThree(numberUser, nameUser);
             showResultsAboutArrows(answerQuestionOne,answerQuestionTwo,answerQuestionThree);
-
+            drawDragon();
         }catch (Exception e){
             System.out.println("Sorry but this game, only permit number :C. Please try again");
         }
