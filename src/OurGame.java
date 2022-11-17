@@ -115,11 +115,8 @@ public class OurGame {
             System.out.printf("You managed to defeat the dragon with your three enchanted arrows. Congratulations you are the hero of Villa Esperanza.");
         }else if(arrowsFinal == 2 || arrowsFinal == 1){
                 System.out.printf("You only managed to get "+arrowsFinal+" magic arrows it's time to face the dragon,\n" +
-                "\n" +
                 "But it is not very likely that you will be able to defeat him\n" +
-                "\n" +
                 "You go to defend your village and you see the dragon\n" +
-                "\n" +
                 "You rush... you manage to get there you start shooting the arrows.");
                 if((int)(Math.random()*10) < 5){
                     System.out.println("The dragon is wounded, but it destroyed your village and you with it.");
