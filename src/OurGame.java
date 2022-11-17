@@ -1,7 +1,31 @@
 import java.util.Scanner;
 
 public class OurGame {
-    public static void showHistoryPartOne(){
+
+    public static void askByName(){
+        System.out.println("Let's start with the adventure, Select a name from the list. Just enter the number");
+        System.out.println("1.Princess               2. Citizen               3. Soldier");
+    }
+
+    public static String giveNameUser(int nameUser){
+        String name = "";
+        switch (nameUser){
+            case 1:
+                name="Princess";
+                break;
+            case 2:
+                name="Citizen";
+                break;
+            case 3:
+                name="Soldier";
+                break;
+            default:
+                name="Unknown";
+        }
+
+        return name;
+    }
+    public static void showHistoryPartOne(String nameUser){
         System.out.println("In Villa Esperaza it is usually quiet days, but today the king called a meeting to defend it" +
                 "\nsince there is a dragon on the way that destroyed several nearby towns" +
                 "\nand everything indicates that your villa will be next.\n" +
@@ -9,33 +33,13 @@ public class OurGame {
                 +"The king heard that there is a witch at the end of the dark forest, who has multiple magic items.\n"+
                 "The ones we are interested in are the three magical dragon-slaying arrows.\n" +
                 "\n" +
-                "In a dream the king saw that you were the salvation of the town, so the king ordered you to go for the arrows.");
-    }
-
-    public static void askByName(){
-        System.out.println("Let's start with the adventure, Select a name from the list. Just enter the number");
-        System.out.println("1. Rosa               2. Ariel               3. Brayan");
-    }
-
-    public static String giveNameUser(int nameUser){
-        String name = "";
-
-        if(nameUser == 1){
-            name="Rosa";
-        }
-        if(nameUser == 2){
-            name="Ariel";
-        }
-        if(nameUser == 3){
-            name="Brayan";
-        }
-        return name;
+                "In a dream the king saw that you the "+nameUser +" were the salvation of the town, so the king ordered you to go for the arrows.");
     }
 
     public static void showHistoryPartTwo(String nameUser){
         System.out.println(nameUser+" toured the whole forest and met the witch\n" +
                 "The witch says \"I will only give you an arrow delighted by every riddle you answer correctly. ”\n"+
-                nameUser+" accept the conditions of the witch.");
+                nameUser+" accept the conditions of the witch."+"\n");
     }
 
     public static void  showQuestionNumberOne(){
@@ -52,10 +56,11 @@ public class OurGame {
             System.out.println("Congratulations "+nameUser+", you got an enchanted arrow.");
         }else if(numberUser == 1 || numberUser == 3){
             System.out.println("Sorry "+nameUser+", you chose the wrong answer");
+            System.out.println(nameUser+"the correct answer was 1 brick :C, but you can still win two arrows.");
         }else if (numberUser>3 || numberUser <0){
-            System.out.println("Sorry "+nameUser+", you chose a number that is not shown to you you lost the enchanted arrow.");
+            System.out.println("Sorry "+nameUser+", you chose a number that is not shown to you you lost the first enchanted arrow.");
         }
-        System.out.println("The next question is....");
+        System.out.println("Now the next question is....");
         return answer;
     }
 
@@ -70,11 +75,11 @@ public class OurGame {
         int answer=0;
         if(numberUser == 3){
             answer=answer+1;
-            System.out.println("Congratulations "+nameUser+", you got an enchanted arrow. :D");
+            System.out.println("You are the best "+nameUser+", you already have two arrows ^^");
         }else if(numberUser == 1 || numberUser == 2){
-            System.out.println("Sorry "+nameUser+", you chose the wrong answer. :C");
+            System.out.println("Sorry "+nameUser+", but the answer you chose is wrong.The correct answer was 1 The windows.... You only have one more option");
         }else if (numberUser>3 || numberUser <0){
-            System.out.println("Sorry "+nameUser+", you chose a number that is not shown to you you lost the enchanted arrow.");
+            System.out.println(nameUser+", Please enter 1-2 or 3, you just lost another enchanted arrow");
         }
         System.out.println("The next question is....");
         return answer;
@@ -93,11 +98,13 @@ public class OurGame {
             answer=answer+1;
             System.out.println("Congratulations "+nameUser+", you got an enchanted arrow.");
         }else if(numberUser == 1 || numberUser == 3){
+            System.out.println(nameUser+"For the last question the correct answer was A coffin");
             System.out.println("Sorry "+nameUser+", you chose the wrong answer");
+
         }else if (numberUser>3 || numberUser <0){
-            System.out.println("Sorry "+nameUser+", you chose a number that is not shown to you you lost the enchanted arrow.");
+            System.out.println(nameUser+"By entering a number out of range you lost an enchanted arrow");
         }
-        System.out.println(nameUser+" finally answered all the questions.");
+        System.out.println(nameUser+" Finally answered all the questions.");
         return answer;
     }
 
@@ -116,11 +123,11 @@ public class OurGame {
     public static void main(String[] args) {
         int numberUser;
         try{
-            showHistoryPartOne();
             askByName();
             Scanner userAnswer = new Scanner(System.in);
             numberUser = userAnswer.nextInt();
             String nameUser = giveNameUser(numberUser);
+            showHistoryPartOne(nameUser);
             showHistoryPartTwo(nameUser);
             showQuestionNumberOne();
             numberUser = userAnswer.nextInt();
@@ -134,7 +141,7 @@ public class OurGame {
             showResultsAboutArrows(answerQuestionOne,answerQuestionTwo,answerQuestionThree);
 
         }catch (Exception e){
-            System.out.println("Enter numbers only.");
+            System.out.println("Sorry but this game, only permit number :C. Please try again");
         }
     }
 }
